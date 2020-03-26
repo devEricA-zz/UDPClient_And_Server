@@ -1,0 +1,23 @@
+Lab 4 - Eric Anderson
+
+The difference between TCP and UDP in python sockets and in general Networking have to do in the way
+that the sockets connect with each other. In general networking, the following can be noted
+about UDP:
+- No Handshaking.
+- IP address and port of destination are attached to the message by the sender.
+- OS attaches IP address and port of sending socket to each segment.
+- Receiver can extract IP address, port of sender from received segment.
+
+as opposed to TCP where
+- Client has to contact the server first.
+- A new socket is created to allow the server process to communicate with the client.
+
+We see this difference in the python sockets by the following
+- UDP sockets are set up with SOCK_DGRAM, where TCP sockets are set up with SOCK_STREAM
+- UDP sockets send the message, the IP address that the message came from, and the port number
+that the server used, where the TCP sockets sent only the message.
+- The UDP Client can be started without the server, yet a TCP client cannot be started without the server
+- The UDP Client can send messages even when the server is not running.
+
+Overall, UDP and TCP sockets differ in the manner that they connect with each other, and in the manner that
+they send messages.
